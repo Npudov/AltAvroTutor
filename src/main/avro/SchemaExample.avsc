@@ -1,0 +1,18 @@
+{"namespace": "com.example.avro",
+  "type": "record",
+  "name": "InfoAccount",
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "MyType",  "type": {
+      "type": "enum",
+      "name": "Type",
+      "symbols": [
+        "STRING",
+        "INTEGER"
+      ],
+      "default": "STRING"
+    }
+    },
+    {"name": "required", "type": "boolean"}
+  ]
+}

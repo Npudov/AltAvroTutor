@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2810972616727083026L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"InfoAccount\",\"namespace\":\"com.example.avro\",\"fields\":[{\"name\":\"nickname\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"age\",\"type\":\"int\"},{\"name\":\"email\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -655544044582697136L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"InfoAccount\",\"namespace\":\"com.example.avro\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"MyType\",\"type\":{\"type\":\"enum\",\"name\":\"Type\",\"symbols\":[\"STRING\",\"INTEGER\"],\"default\":\"STRING\"}},{\"name\":\"required\",\"type\":\"boolean\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,10 +71,9 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.String nickname;
-  @Deprecated public java.lang.String city;
-  @Deprecated public int age;
-  @Deprecated public java.lang.String email;
+  @Deprecated public java.lang.String name;
+  @Deprecated public com.example.avro.Type MyType;
+  @Deprecated public boolean required;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -85,16 +84,14 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * All-args constructor.
-   * @param nickname The new value for nickname
-   * @param city The new value for city
-   * @param age The new value for age
-   * @param email The new value for email
+   * @param name The new value for name
+   * @param MyType The new value for MyType
+   * @param required The new value for required
    */
-  public InfoAccount(java.lang.String nickname, java.lang.String city, java.lang.Integer age, java.lang.String email) {
-    this.nickname = nickname;
-    this.city = city;
-    this.age = age;
-    this.email = email;
+  public InfoAccount(java.lang.String name, com.example.avro.Type MyType, java.lang.Boolean required) {
+    this.name = name;
+    this.MyType = MyType;
+    this.required = required;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -102,10 +99,9 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return nickname;
-    case 1: return city;
-    case 2: return age;
-    case 3: return email;
+    case 0: return name;
+    case 1: return MyType;
+    case 2: return required;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -114,80 +110,62 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: nickname = value$ != null ? value$.toString() : null; break;
-    case 1: city = value$ != null ? value$.toString() : null; break;
-    case 2: age = (java.lang.Integer)value$; break;
-    case 3: email = value$ != null ? value$.toString() : null; break;
+    case 0: name = value$ != null ? value$.toString() : null; break;
+    case 1: MyType = (com.example.avro.Type)value$; break;
+    case 2: required = (java.lang.Boolean)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
   /**
-   * Gets the value of the 'nickname' field.
-   * @return The value of the 'nickname' field.
+   * Gets the value of the 'name' field.
+   * @return The value of the 'name' field.
    */
-  public java.lang.String getNickname() {
-    return nickname;
+  public java.lang.String getName() {
+    return name;
   }
 
 
   /**
-   * Sets the value of the 'nickname' field.
+   * Sets the value of the 'name' field.
    * @param value the value to set.
    */
-  public void setNickname(java.lang.String value) {
-    this.nickname = value;
+  public void setName(java.lang.String value) {
+    this.name = value;
   }
 
   /**
-   * Gets the value of the 'city' field.
-   * @return The value of the 'city' field.
+   * Gets the value of the 'MyType' field.
+   * @return The value of the 'MyType' field.
    */
-  public java.lang.String getCity() {
-    return city;
+  public com.example.avro.Type getMyType() {
+    return MyType;
   }
 
 
   /**
-   * Sets the value of the 'city' field.
+   * Sets the value of the 'MyType' field.
    * @param value the value to set.
    */
-  public void setCity(java.lang.String value) {
-    this.city = value;
+  public void setMyType(com.example.avro.Type value) {
+    this.MyType = value;
   }
 
   /**
-   * Gets the value of the 'age' field.
-   * @return The value of the 'age' field.
+   * Gets the value of the 'required' field.
+   * @return The value of the 'required' field.
    */
-  public int getAge() {
-    return age;
+  public boolean getRequired() {
+    return required;
   }
 
 
   /**
-   * Sets the value of the 'age' field.
+   * Sets the value of the 'required' field.
    * @param value the value to set.
    */
-  public void setAge(int value) {
-    this.age = value;
-  }
-
-  /**
-   * Gets the value of the 'email' field.
-   * @return The value of the 'email' field.
-   */
-  public java.lang.String getEmail() {
-    return email;
-  }
-
-
-  /**
-   * Sets the value of the 'email' field.
-   * @param value the value to set.
-   */
-  public void setEmail(java.lang.String value) {
-    this.email = value;
+  public void setRequired(boolean value) {
+    this.required = value;
   }
 
   /**
@@ -231,10 +209,9 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<InfoAccount>
     implements org.apache.avro.data.RecordBuilder<InfoAccount> {
 
-    private java.lang.String nickname;
-    private java.lang.String city;
-    private int age;
-    private java.lang.String email;
+    private java.lang.String name;
+    private com.example.avro.Type MyType;
+    private boolean required;
 
     /** Creates a new Builder */
     private Builder() {
@@ -247,21 +224,17 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.example.avro.InfoAccount.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.nickname)) {
-        this.nickname = data().deepCopy(fields()[0].schema(), other.nickname);
+      if (isValidValue(fields()[0], other.name)) {
+        this.name = data().deepCopy(fields()[0].schema(), other.name);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.city)) {
-        this.city = data().deepCopy(fields()[1].schema(), other.city);
+      if (isValidValue(fields()[1], other.MyType)) {
+        this.MyType = data().deepCopy(fields()[1].schema(), other.MyType);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.age)) {
-        this.age = data().deepCopy(fields()[2].schema(), other.age);
+      if (isValidValue(fields()[2], other.required)) {
+        this.required = data().deepCopy(fields()[2].schema(), other.required);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
-      }
-      if (isValidValue(fields()[3], other.email)) {
-        this.email = data().deepCopy(fields()[3].schema(), other.email);
-        fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
     }
 
@@ -271,180 +244,136 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.example.avro.InfoAccount other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.nickname)) {
-        this.nickname = data().deepCopy(fields()[0].schema(), other.nickname);
+      if (isValidValue(fields()[0], other.name)) {
+        this.name = data().deepCopy(fields()[0].schema(), other.name);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.city)) {
-        this.city = data().deepCopy(fields()[1].schema(), other.city);
+      if (isValidValue(fields()[1], other.MyType)) {
+        this.MyType = data().deepCopy(fields()[1].schema(), other.MyType);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.age)) {
-        this.age = data().deepCopy(fields()[2].schema(), other.age);
+      if (isValidValue(fields()[2], other.required)) {
+        this.required = data().deepCopy(fields()[2].schema(), other.required);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.email)) {
-        this.email = data().deepCopy(fields()[3].schema(), other.email);
-        fieldSetFlags()[3] = true;
-      }
     }
 
     /**
-      * Gets the value of the 'nickname' field.
+      * Gets the value of the 'name' field.
       * @return The value.
       */
-    public java.lang.String getNickname() {
-      return nickname;
+    public java.lang.String getName() {
+      return name;
     }
 
 
     /**
-      * Sets the value of the 'nickname' field.
-      * @param value The value of 'nickname'.
+      * Sets the value of the 'name' field.
+      * @param value The value of 'name'.
       * @return This builder.
       */
-    public com.example.avro.InfoAccount.Builder setNickname(java.lang.String value) {
+    public com.example.avro.InfoAccount.Builder setName(java.lang.String value) {
       validate(fields()[0], value);
-      this.nickname = value;
+      this.name = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'nickname' field has been set.
-      * @return True if the 'nickname' field has been set, false otherwise.
+      * Checks whether the 'name' field has been set.
+      * @return True if the 'name' field has been set, false otherwise.
       */
-    public boolean hasNickname() {
+    public boolean hasName() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'nickname' field.
+      * Clears the value of the 'name' field.
       * @return This builder.
       */
-    public com.example.avro.InfoAccount.Builder clearNickname() {
-      nickname = null;
+    public com.example.avro.InfoAccount.Builder clearName() {
+      name = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'city' field.
+      * Gets the value of the 'MyType' field.
       * @return The value.
       */
-    public java.lang.String getCity() {
-      return city;
+    public com.example.avro.Type getMyType() {
+      return MyType;
     }
 
 
     /**
-      * Sets the value of the 'city' field.
-      * @param value The value of 'city'.
+      * Sets the value of the 'MyType' field.
+      * @param value The value of 'MyType'.
       * @return This builder.
       */
-    public com.example.avro.InfoAccount.Builder setCity(java.lang.String value) {
+    public com.example.avro.InfoAccount.Builder setMyType(com.example.avro.Type value) {
       validate(fields()[1], value);
-      this.city = value;
+      this.MyType = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'city' field has been set.
-      * @return True if the 'city' field has been set, false otherwise.
+      * Checks whether the 'MyType' field has been set.
+      * @return True if the 'MyType' field has been set, false otherwise.
       */
-    public boolean hasCity() {
+    public boolean hasMyType() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-      * Clears the value of the 'city' field.
+      * Clears the value of the 'MyType' field.
       * @return This builder.
       */
-    public com.example.avro.InfoAccount.Builder clearCity() {
-      city = null;
+    public com.example.avro.InfoAccount.Builder clearMyType() {
+      MyType = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'age' field.
+      * Gets the value of the 'required' field.
       * @return The value.
       */
-    public int getAge() {
-      return age;
+    public boolean getRequired() {
+      return required;
     }
 
 
     /**
-      * Sets the value of the 'age' field.
-      * @param value The value of 'age'.
+      * Sets the value of the 'required' field.
+      * @param value The value of 'required'.
       * @return This builder.
       */
-    public com.example.avro.InfoAccount.Builder setAge(int value) {
+    public com.example.avro.InfoAccount.Builder setRequired(boolean value) {
       validate(fields()[2], value);
-      this.age = value;
+      this.required = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'age' field has been set.
-      * @return True if the 'age' field has been set, false otherwise.
+      * Checks whether the 'required' field has been set.
+      * @return True if the 'required' field has been set, false otherwise.
       */
-    public boolean hasAge() {
+    public boolean hasRequired() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'age' field.
+      * Clears the value of the 'required' field.
       * @return This builder.
       */
-    public com.example.avro.InfoAccount.Builder clearAge() {
+    public com.example.avro.InfoAccount.Builder clearRequired() {
       fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'email' field.
-      * @return The value.
-      */
-    public java.lang.String getEmail() {
-      return email;
-    }
-
-
-    /**
-      * Sets the value of the 'email' field.
-      * @param value The value of 'email'.
-      * @return This builder.
-      */
-    public com.example.avro.InfoAccount.Builder setEmail(java.lang.String value) {
-      validate(fields()[3], value);
-      this.email = value;
-      fieldSetFlags()[3] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'email' field has been set.
-      * @return True if the 'email' field has been set, false otherwise.
-      */
-    public boolean hasEmail() {
-      return fieldSetFlags()[3];
-    }
-
-
-    /**
-      * Clears the value of the 'email' field.
-      * @return This builder.
-      */
-    public com.example.avro.InfoAccount.Builder clearEmail() {
-      email = null;
-      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -453,10 +382,9 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
     public InfoAccount build() {
       try {
         InfoAccount record = new InfoAccount();
-        record.nickname = fieldSetFlags()[0] ? this.nickname : (java.lang.String) defaultValue(fields()[0]);
-        record.city = fieldSetFlags()[1] ? this.city : (java.lang.String) defaultValue(fields()[1]);
-        record.age = fieldSetFlags()[2] ? this.age : (java.lang.Integer) defaultValue(fields()[2]);
-        record.email = fieldSetFlags()[3] ? this.email : (java.lang.String) defaultValue(fields()[3]);
+        record.name = fieldSetFlags()[0] ? this.name : (java.lang.String) defaultValue(fields()[0]);
+        record.MyType = fieldSetFlags()[1] ? this.MyType : (com.example.avro.Type) defaultValue(fields()[1]);
+        record.required = fieldSetFlags()[2] ? this.required : (java.lang.Boolean) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -489,13 +417,11 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    out.writeString(this.nickname);
+    out.writeString(this.name);
 
-    out.writeString(this.city);
+    out.writeEnum(this.MyType.ordinal());
 
-    out.writeInt(this.age);
-
-    out.writeString(this.email);
+    out.writeBoolean(this.required);
 
   }
 
@@ -504,31 +430,25 @@ public class InfoAccount extends org.apache.avro.specific.SpecificRecordBase imp
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.nickname = in.readString();
+      this.name = in.readString();
 
-      this.city = in.readString();
+      this.MyType = com.example.avro.Type.values()[in.readEnum()];
 
-      this.age = in.readInt();
-
-      this.email = in.readString();
+      this.required = in.readBoolean();
 
     } else {
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 3; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.nickname = in.readString();
+          this.name = in.readString();
           break;
 
         case 1:
-          this.city = in.readString();
+          this.MyType = com.example.avro.Type.values()[in.readEnum()];
           break;
 
         case 2:
-          this.age = in.readInt();
-          break;
-
-        case 3:
-          this.email = in.readString();
+          this.required = in.readBoolean();
           break;
 
         default:

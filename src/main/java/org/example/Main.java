@@ -1,6 +1,7 @@
 package org.example;
 
 import com.example.avro.InfoAccount;
+import com.example.avro.Type;
 import org.apache.avro.file.DataFileReader;
 import org.apache.avro.file.DataFileWriter;
 import org.apache.avro.io.DatumReader;
@@ -52,10 +53,9 @@ public class Main {
         }*/
 
         InfoAccount infoAccountObj = InfoAccount.newBuilder()
-                .setNickname("John")
-                .setCity("SPB")
-                .setAge(20)
-                .setEmail("dskjk@ya.ru")
+                .setName("John")
+                .setMyType(Type.STRING)
+                .setRequired(true)
                 .build();
 
         DatumWriter<InfoAccount> infoAccountDatumWriter = new SpecificDatumWriter<InfoAccount>(InfoAccount.class);
